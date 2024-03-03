@@ -1,10 +1,10 @@
 <html>
 <head>
-  <title>A Leaflet map!</title>
+  <title>Pearl Symphony</title>
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
-     <script type="text/javascript" src="https://ff.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3Kuu70722w9NuYkRXFJtG5Pp0jE7w3trDnbfGUpIOxFT5Dfxox98_8sxXxsFEnTGYloAEalRU5N4rRCyWMcfXnIc2PTaweHdpCnlyDQmjb7tmUxtB9X5Eu2Hn-p5OkFfmZy4WVPSDwFsbCKi97XgjnV7lCYDA2qyhWJIH1M5dT1viUv-mjBNMYTh2E06h1R7nay4CWlnVuVaMVWoWSh8JC4_nsBXwbgTy96DubxI1dySHl-GKh8FyYjjxfigjkZirv2fPd5JS9J4yVKDQCl9MqV_V70fUODZUDkcwj0VPNLLghQWAol696_lg0fPJg9JS6Ofozz2IJ_qi1_VlWcPKfGuaNE29v5g4eL0iYFzDR7oEvFkz9rg_IW-Uz78a9Cd08gl5EGFp9uo_-DinxDPYTFdxQ1OvI6uybOwHDiGo4WvKSBpuKASab6lDBSqIGnndinY6dCgHCNisA1ovH4pK8CtlJExo-M3CfbMhLw8A4-4Z5gGNI0fpkEifXjT6an39iri_SrbyGsT2M8tSteVf50AQ6mNIJrYnhmpS_MiD-cN_xdPx-RBHSZwGnaauiRDrASwb7t6gDYh0ghz9Lag9Re_6THLnwiI-I1sCzQYyVdBk4fecjT7hnGpPgs8AWANHSJ5Pi19YmVDXY7Melm3EGv5Ceu8h5eMIgZ1xGIez-eV9UwTK2WUawYY0iJUmUvSLqZ90STJBoN3FY2qf0Sz51NtPInNPUgvIO4K0CjyroDhvyx8IrmJdhI0GEwq8ph1m0hhkl461Z77YPnibVQTKgK9dP-5ZdTYFMry1I2paXru35pmuZx5TvpPDpAouj6IJ5yZpZFn9DFYLUqe4gUGS8788zS2_cpLFvzqx2Yo94opvsraio-yMFiXxPz7aRzJCKiSit26DlW3DZa69D27vlawXz5yA4Xbu1TgWaZZ-y5hd1w-VqwfDgsjQdpdKZisRdGOX4GtXgMCQ0W9NFQaezaU5p4LVopi0Q5kxCUu_6QVNNX3mk1yxyVUvyeUvjLW-byU9G65yIPYIq8edOzqjRZHgqesWu6bhCackcZ_SZxdao0J7C5uS7_kAi0smQGqzXoIPPWtWj8E0yK8yDAfkztbjtlsZseNclu2eGcd2N3u1C_iK3xt16xasOhGJZ2ErCjDirPsbqEVZzgPuXiQuUY9G5hCXUvVR-OOHh1sPC4lmv987xPuRHMmnxhNAjMH5XZNSn0goNzj7lVKDR4b7qfSNwkYhB3kTDTOY0ZKKzg0E6vyjEJBit2jwiX22OwB56fM-C4fQ32zjH_YKNwjyCqxwHbj2T11CBVR25JCBy4JqAAEo-L7I4irj4ztrWWgKWgy_NW3peuIxblFav9vCAFyo-siu0eHjgAsH8txl_rrCTMv_fuJu154Hts2ZfifWBFW4fTd6f794MWiA3SN_h-oIyUWiguCuF9SmdVzCSOoSujGIPzh3-WAZ2o8Uz3De95y_C0uKIKFAbKnGK1pe1wIA-HC-FfRXdEBInPQ09JwunQzSwQEgpsxk1hAxWdJYUbbo0S5xmIXBXTvBqZ_nJHjjgXCzHxKi1QqHRgoUVyvdFUP2uik3vv6-DMItyaGtYJro7G-Og0vfrJAkWUWo5JbUbFE-us5lCL9x7ebo2CiTDrvGEaUVRPhGXkbp2yUhi4n1ATo-msb88GHgjTVQZM-0DpqaQlrTOMRTQcOt50" nonce="60fdac2dac031e546fffcb3c49da387f" charset="UTF-8"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
   <style>
@@ -18,19 +18,384 @@
   <script>
 
   // initialize the map
+  var bounds = [[0,0], [4960,3508]];
   var map = L.map('map', {
       crs: L.CRS.Simple,
-      minZoom: -20
+      maxZoom: -1,
+      minZoom: -3,
+      maxBounds: [[-750,-750], [5710,4258]],
+      maxBoundsViscosity: 1.0
     });
 
-
-  var bounds = [[0,0], [4960,3508]];
-  var image = L.imageOverlay('shapes.png', bounds).addTo(map);
+  var detaljna_mapa = L.imageOverlay('Working verzija.jpg', bounds).addTo(map);
   map.fitBounds(bounds);
-  var teritorij_prvi = L.polygon([
-    [1329, 943],
-    [1500, 2500]
-]).addTo(map);
+
+
+var Storage = L.polygon([
+    [1329,943],
+    [1342,930],
+    [1471,930],
+    [1514,973],
+    [1514,1028],
+    [1557,1028],
+    [1557,979],
+    [1586,979],
+    [1586,850],
+    [1553,850],
+    [1553,780],
+    [1586,780],
+    [1586,757],
+    [1553,757],
+    [1553,687],
+    [1586,687],
+    [1586,633],
+    [1466,633],
+    [1466,610],
+    [1630,436],
+    [1801,436],
+    [1965,610],
+    [1965,633],
+    [1842,633],
+    [1842,687],
+    [1868,687],
+    [1868,757],
+    [1842,757],
+    [1842,780],
+    [1868,780],
+    [1868,850],
+    [1842,850],
+    [1842,979],
+    [1873,979],
+    [1873,1028],
+    [2017,1028],
+    [2017,1026],
+    [2023,1026],
+    [2023,1020],
+    [2028,1020],
+    [2028,1015],
+    [2034,1015],
+    [2034,1009],
+    [2040,1009],
+    [2040,1003],
+    [2050,1003],
+    [2050,1570],
+    [1985,1570],
+    [1985,1896],
+    [2050,1896],
+    [2050,2048],
+    [1981,2048],
+    [1981,2081],
+    [1678,2081],
+    [1655,2058],
+    [1655,2022],
+    [1619,2022],
+    [1597,2000],
+    [1597,1871],
+    [1423,1871],
+    [1387,1835],
+    [1387,1083],
+    [1355,1083],
+    [1329,1057]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Storage.bindTooltip("<font size='3'><b>Storage</b></font><br><b>Strategic Assets:</b> Expanded Armoury, Surveillance System, Engineering Bay</b><br><b>Resources:</b> 3 RP, 3 (5EXP), 3 Rare equipment, 4 Base slot",{direction:"center"});
+
+
+var Barracks = L.polygon([
+    [2124,1089],
+    [2695,1089],
+    [2695,1135],
+    [2653,1135],
+    [2653,1463],
+    [2124,1463],
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Barracks.bindTooltip("<font size='3'><b>Barracks</b></font><br><b>Resources:</b> 2 RP, 2 EXP, 5 Rare equipment",{direction:"center"});
+
+
+var Chapel = L.polygon([
+    [2344,755],
+    [2405,755],
+    [2405,650],
+    [3145,650],
+    [3145,456],
+    [3404,456],
+    [3404,650],
+    [3446,650],
+    [3446,800],
+    [3571,800],
+    [3571,985],
+    [3446,985],
+    [3446,1135],
+    [3404,1135],
+    [3404,1347],
+    [3161,1347],
+    [3161,936],
+    [3071,936],
+    [3071,1079],
+    [2405,1079],
+    [2405,986],
+    [2344,986]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Chapel.bindTooltip("<font size='3'><b>Chapel</b></font><br><b>Assets:</b> War Shrine, Comms Network<br><b>Resources:</b> 3 RP, 3 (5EXP), 3 Base slot",{direction:"center"});
+
+
+var Library = L.polygon([
+    [2705,1089],
+    [3081,1089],
+    [3081,946],
+    [3151,946],
+    [3151,1357],
+    [3271,1357],
+    [3271,1837],
+    [3227,1837],
+    [3172,1715],
+    [3033,1659],
+    [2894,1715],
+    [2839,1853],
+    [2895,1992],
+    [2705,1992],
+    [2705,1600],
+    [2842,1600],
+    [2842,1508],
+    [2705,1508]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Library.bindTooltip("<font size='3'><b>Library</b></font><br><b>Assets:</b> Med Bay, Intelligence Network</b><br><b>Resources:</b> 2RP, 5(EXP), 2 Base slot",{direction:"center"});
+
+
+var Entrance_Hall = L.polygon([
+    [3281,1357],
+    [3404,1357],
+    [3404,1417],
+    [3519,1417],
+    [3519,1357],
+    [4248,1357],
+    [4248,1292],
+    [4427,1292],
+    [4427,1411],
+    [4319,1411],
+    [4319,1830],
+    [4428,1830],
+    [4428,1949],
+    [4249,1949],
+    [4249,1881],
+    [3669,1881],
+    [3598,1757],
+    [3472,1757],
+    [3472,1844],
+    [3281,1844]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Entrance_Hall.bindTooltip("<font size='3'><b>Entrance Hall</b></font><br><b>Resources:</b> 4 RP, 3 (5EXP)",{direction:"center"});
+
+
+var Generator = L.polygon([
+    [2141,1738],
+    [2213,1738],
+    [2213,1672],
+    [2695,1672],
+    [2695,2002],
+    [2906,2002],
+    [3019,2047],
+    [3019,2177],
+    [2255,2177],
+    [2213,2135],
+    [2213,1979],
+    [2141,1979]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Generator.bindTooltip("<font size='3'><b>Generator</b></font><br><b>Resources:</b> 3 RP, 4 Base slot",{direction:"center"})
+
+
+var B7 = L.polygon([
+    [2783,2235],
+    [2841,2235],
+    [2841,2187],
+    [3029,2187],
+    [3029,2047],
+    [3171,1991],
+    [3227,1847],
+    [3271,1847],
+    [3271,1854],
+    [3482,1854],
+    [3482,1767],
+    [3592,1767],
+    [3656,1878],
+    [3656,1881],
+    [3628,1881],
+    [3628,2617],
+    [3526,2617],
+    [3488,2578],
+    [3450,2617],
+    [3336,2617],
+    [3297,2578],
+    [3232,2643],
+    [2841,2643],
+    [2841,2314],
+    [2783,2314]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+B7.bindTooltip("<font size='3'><b>B7</b></font><br><b>Resources:</b> 3RP, 2(5EXP)",{direction:"center"});
+
+
+var Bastion = L.polygon([
+    [2908,2729],
+    [3239,2729],
+    [3239,3013],
+    [3269,3013],
+    [3269,3067],
+    [3239,3067],
+    [3239,3106],
+    [3269,3106],
+    [3269,3165],
+    [3052,3165],
+    [3052,3141],
+    [2992,3082],
+    [3021,3053],
+    [2956,2988],
+    [2927,3017],
+    [2908,2998]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Bastion.bindTooltip("<font size='3'><b>Bastion</b></font><br><b>Assets:</b> Comms Network<br><b>Resources:</b> 3 RP, 3 (5EXP), 3 Rare equipment",{direction:"center"});
+
+
+var Quire = L.circle([4125,2548], {
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25,
+    radius: 294
+});
+Quire.bindTooltip("<font size='3'><b>Quire</b></font><br><b>Assets:</b> Intelligence Network, Tactical Uplink<br><b>Resources:</b> 3 RP, 3 (5EXP), 3 Base slot",{direction:"center"});
+
+
+var Bauxite_Mine = L.polygon([
+    [2674,2187],
+    [2384,2187],
+    [2313,2280],
+    [2195,2324],
+    [2072,2254],
+    [2022,2387],
+    [1947,2411],
+    [1879,2423],
+    [1839,2346],
+    [1730,2341],
+    [1715,2443],
+    [1779,2464],
+    [1834,2535],
+    [1834,2599],
+    [1642,2721],
+    [1642,2829],
+    [1820,2934],
+    [1902,2912],
+    [2055,2766],
+    [2255,2778],
+    [2294,2763],
+    [2415,2763],
+    [2415,2699],
+    [2449,2368]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Bauxite_Mine.bindTooltip("<font size='3'><b>Bauxite Mine</b></font><br><b>Assets:</b> Stimm Stash<br><b>Resources:</b> 3 RP, 4 Rare equipment",{direction:"center"});
+
+
+var Biodome_3 = L.circle([3763,2248],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25,
+    radius: 94
+});
+Biodome_3.bindTooltip("<font size='3'><b>Biodome 3</b></font><br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_2 = L.circle([3763,2031],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25,
+    radius: 94
+});
+Biodome_2.bindTooltip("<font size='3'><b>Biodome 2</b></font><br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_1 = L.circle([3979,2031],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25,
+    radius: 94
+});
+Biodome_1.bindTooltip("<font size='3'><b>Biodome 1</b></font><br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+
+var Headquarters = L.polygon([
+    [3456,650],
+    [3604,650],
+    [3760,728],
+    [3825,893],
+    [3760,1057],
+    [3604,1135],
+    [3456,1135],
+    [3456,995],
+    [3581,995],
+    [3581,790],
+    [3456,790]
+],{
+    color: 'orange',
+    fillColor: ' #ffb843 ',
+    fillOpacity: 0.25
+});
+Headquarters.bindTooltip("<font size='3'><b>Headquarters</b></font><br><b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
+
+var teritoriji = L.layerGroup([Storage, Barracks, Chapel, Library, Entrance_Hall, Generator, B7, Bastion, Quire, Bauxite_Mine, Biodome_1, Biodome_2, Biodome_3, Headquarters]);
+var baseMaps = {
+    "Detaljna mapa": detaljna_mapa,
+};
+var overlayMaps = {
+    "<span style='color: orange'><font size='3'>Overlay s teritorijima</font></span>": teritoriji
+};
+var layerControl = L.control.layers(null, overlayMaps, {collapsed:false}).addTo(map); //mogu dodat html umesto "detaljna mapa" npr.
+
+
+var legend = L.control({position: 'topright'});
+
+legend.onAdd = function (map) {
+    var div = L.DomUtil.create('div', 'info legend'),
+        labels = ["baxest.png","dguardt.png", "harlequinst.png", "hastartest.png", "kriegt.png", "metalicat.png", "rtraderst.png", "rclawt.png"];
+        div.innerHTML += " <center><img src=baxest.png height='48' width='52'></center><br>";
+        div.innerHTML += " <center><img src=dguardt.png height='50' width='50'></center><br>";
+        div.innerHTML += " <center><img src=harlequinst.png height='67' width='33'></center><br>";
+        div.innerHTML += " <center><img src=hastartest.png height='60' width='60'></center><br>";
+        div.innerHTML += " <center><img src=kriegt.png height='53' width='51'></center><br>";
+        div.innerHTML += " <center><img src=metalicat.png height='47' width='55'></center><br>";
+        div.innerHTML += " <center><img src=rtraderst.png height='38' width='78'></center><br>";
+        div.innerHTML += " <center><img src=rclawt.png height='57' width='45'></center><br>";
+    return div;
+};
+legend.addTo(map);
+
   </script>
 </body>
 </html>
