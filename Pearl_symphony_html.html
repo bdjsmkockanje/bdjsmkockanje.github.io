@@ -4,7 +4,7 @@
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
-     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=6gJXFFNP52m4SteI49DC_cC5VQQLCC5NoJfgun5_IA1c6hwsPMXNIAv7OvzdsAEirbvmj4MYojQJmSJGULdVAzHhQefGu_s4ygzr0ONfjXmv3xB2pFVyhBlaMSBGygD-ZAVQo9Egvbx4ZJ5v5hmWZt2edNbZPMKliCT4F8bmTCqz5YhEPJ85dvcO_0UK66B2USJWHhFPKGFkrBUaLaB82S9ZrDyg_vu5B0gf0v59cz-SmheYUlqMkI7IhVTLJ0KPrEChgpcKXBpcxLEJ8j4aJzDhHDpSbz6YxhF_B5z7WI8" charset="UTF-8"></script><script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
   <style>
@@ -38,7 +38,6 @@
   <div id="map"></div>
   <script>
 
-  // initialize the map
   var bounds = [[0,0], [4960,3508]];
   var map = L.map('map', {
       crs: L.CRS.Simple,
@@ -47,7 +46,8 @@
       maxBounds: [[-750,-750], [5710,4258]],
       maxBoundsViscosity: 1.0,
       zoomAnimation: false,
-      zoomControl: false
+      zoomControl: false,
+      doubleClickZoom: false
     });
 
   var detaljna_mapa = L.imageOverlay('Working verzija.jpg', bounds).addTo(map);
@@ -341,6 +341,12 @@ var obicanStyle = {
     fillColor: ' #ffb843 ',
     fillOpacity: 0.17
 };
+var highlightStyle = {
+    weight: 5,
+    color: 'red',
+    fillColor: ' #red ',
+    fillOpacity: 0.50
+};
 var quireStyle = {
     weight: 1.5,
     color: 'orange',
@@ -355,7 +361,6 @@ var biodomeStyle = {
     fillOpacity: 0.17,
     radius: 94
 };
-
 var Headquarters_fluff = "<font color='#626567 '><i>A semicircular space packed with screens, dials and buttons of all shapes and sizes. The room is lined with a foot of glasscrete, "+
 "allowing the occupants to survey the moon directly. Since it is designed to monitor and adjust the flow of fuel, oxygen and power throughout the station, "+
 "the headquarters is a vital territory for anyone seeking power over the base.</i></font><br>";
@@ -398,36 +403,132 @@ var battle = L.icon({
     iconUrl: 'battlebtd.png',
     iconSize:     [22, 22],
     iconAnchor:   [11, 11],
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 0],
+    indeks: 0
+});
+var battleAlt = L.icon({
+    iconUrl: 'battlebthred.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 1
+});
+var kommandos = L.icon({
+    iconUrl: 'baxesbtd.png',
+    iconSize:     [14, 24],
+    iconAnchor:   [7, 12],
+    popupAnchor:  [0, 0],
+    indeks: 2
+});
+var kommandosAlt = L.icon({
+    iconUrl: 'baxesbth.png',
+    iconSize:     [14, 24],
+    iconAnchor:   [7, 12],
+    popupAnchor:  [0, 0],
+    indeks: 3
+});
+var dguard = L.icon({
+    iconUrl: 'dguardbtd.png',
+    iconSize:     [14, 24],
+    iconAnchor:   [7, 12],
+    popupAnchor:  [0, 0],
+    indeks: 4
+});
+var dguardAlt = L.icon({
+    iconUrl: 'dguardbth.png',
+    iconSize:     [14, 24],
+    iconAnchor:   [7, 12],
+    popupAnchor:  [0, 0],
+    indeks: 5
 });
 var harlequins = L.icon({
     iconUrl: 'harlequinsbtd.png',
     iconSize:     [14, 24],
     iconAnchor:   [7, 12],
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 0],
+    indeks: 6
+});
+var harlequinsAlt = L.icon({
+    iconUrl: 'harlequinsbth.png',
+    iconSize:     [14, 24],
+    iconAnchor:   [7, 12],
+    popupAnchor:  [0, 0],
+    indeks: 7
 });
 var heretic_astartes = L.icon({
     iconUrl: 'hastartesbtd.png',
     iconSize:     [22, 22],
     iconAnchor:   [11, 11],
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 0],
+    indeks: 8
+});
+var heretic_astartesAlt = L.icon({
+    iconUrl: 'hastartesbth.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 9
 });
 var kriegs = L.icon({
     iconUrl: 'kriegbtd.png',
-    iconSize:     [22, 22], //ovo treba popravit jos, al mozda i ne hm
+    iconSize:     [22, 22],
     iconAnchor:   [11, 11],
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 0],
+    indeks: 10
+});
+var kriegsAlt = L.icon({
+    iconUrl: 'kriegbth.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 11
+});
+var metalica = L.icon({
+    iconUrl: 'metalicabtd.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 12
+});
+var metalicaAlt = L.icon({
+    iconUrl: 'metalicabth.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 13
+});
+var rtraders = L.icon({
+    iconUrl: 'rtradersbtd.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 14
+});
+var rtradersAlt = L.icon({
+    iconUrl: 'rtradersbth.png',
+    iconSize:     [22, 22],
+    iconAnchor:   [11, 11],
+    popupAnchor:  [0, 0],
+    indeks: 15
 });
 var genestealers = L.icon({
     iconUrl: 'rclawbtd.png',
     iconSize:     [16, 20],
     iconAnchor:   [8, 10],
-    popupAnchor:  [0, 0]
+    popupAnchor:  [0, 0],
+    indeks: 16
+});
+var genestealersAlt = L.icon({
+    iconUrl: 'rclawbth.png',
+    iconSize:     [16, 20],
+    iconAnchor:   [8, 10],
+    popupAnchor:  [0, 0],
+    indeks: 17
 });
 
 
 //############################################################################################################################################
-//Turn 0
+//Session 0
 
 var Storage_0 = L.polygon(Storage_k, obicanStyle);
 Storage_0.bindTooltip("<font size='3'><b>Storage</b></font><br>"+ Storage_fluff + "<b>Assets:</b> Expanded Armoury, Surveillance System, Engineering Bay</b><br><b>Resources:</b> 2 RP, 4 (5EXP), 4 Rare equipment, 3 Base slot",{direction:"center"});
@@ -460,11 +561,11 @@ var Bauxite_Mine_0 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_0.bindTooltip("<font size='3'><b>Bauxite Mine</b></font><br>"+BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_0 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_0.bindTooltip("<font size='3'><b>Biodome 3</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_0.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_0 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_0.bindTooltip("<font size='3'><b>Biodome 2</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_0.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_0 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_0.bindTooltip("<font size='3'><b>Biodome 1</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_0.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_0 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_0.bindTooltip("<font size='3'><b>Headquarters</b></font><br>"+ Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
@@ -472,7 +573,76 @@ Headquarters_0.bindTooltip("<font size='3'><b>Headquarters</b></font><br>"+ Head
 var teritoriji_0 = L.layerGroup([Storage_0, Barracks_0, Chapel_0, Library_0, Entrance_Hall_0, Generator_0, B7_0, Bastion_0, Quire_0, Bauxite_Mine_0, Biodome_1_0, Biodome_2_0, Biodome_3_0, Headquarters_0]);
 var teritoriji_0_array = [Storage_0, Barracks_0, Chapel_0, Library_0, Entrance_Hall_0, Generator_0, B7_0, Bastion_0, Quire_0, Bauxite_Mine_0, Biodome_1_0, Biodome_2_0, Biodome_3_0, Headquarters_0];
 //############################################################################################################################################
-//Turn 2
+//Session 1
+
+var Storage_1 = L.polygon(Storage_k, obicanStyle);
+Storage_1.bindTooltip("<font size='3'><b>Storage</b></font><br>"+ Storage_fluff + "<b>Assets:</b> Expanded Armoury, Surveillance System, Engineering Bay</b><br><b>Resources:</b> 2 RP, 4 (5EXP), 4 Rare equipment, 3 Base slot",{direction:"center"});
+
+var Barracks_1 = L.polygon(Barracks_k, obicanStyle);
+Barracks_1.bindTooltip("<font size='3'><b>Barracks</b></font><br>"+ Barracks_fluff + "<b>Resources:</b> 2 RP, 1 (5EXP), 4 Rare equipment",{direction:"center"});
+
+var Chapel_1 = L.polygon(Chapel_k, obicanStyle);
+Chapel_1.bindTooltip("<font size='3'><b>Chapel</b></font><br>"+ Chapel_fluff + "<b>Assets:</b> War Shrine, Comms Network<br><b>Resources:</b> 2 RP, 3 (5EXP), 2 Base slot",{direction:"center"});
+
+var Library_1 = L.polygon(Library_k, obicanStyle);
+Library_1.bindTooltip("<font size='3'><b>Library</b></font><br>"+ Library_fluff + "<b>Assets:</b> Med Bay, Intelligence Network</b><br><b>Resources:</b> 2 RP, 5 (EXP), 2 Base slot",{direction:"center"});
+
+var Entrance_Hall_1 = L.polygon(Entrance_Hall_k, obicanStyle);
+Entrance_Hall_1.bindTooltip("<font size='3'><b>Entrance Hall</b></font><br>"+ Entrance_Hall_fluff +"<b>Resources:</b> 2 RP, 5 (5EXP)",{direction:"center"});
+
+var Generator_1 = L.polygon(Generator_k, obicanStyle);
+Generator_1.bindTooltip("<font size='3'><b>Generator</b></font><br>"+Generator_fluff+"<b>Resources:</b> 3 RP, 4 Base slot",{direction:"center"})
+
+var B7_1 = L.polygon(B7_k, obicanStyle);
+B7_1.bindTooltip("<font size='3'><b>B7</b></font><br>"+B7_fluff+"<b>Resources:</b> 3 RP, 2 (5EXP)",{direction:"center"});
+
+var Bastion_1 = L.polygon(Bastion_k, obicanStyle);
+Bastion_1.bindTooltip("<font size='3'><b>Bastion</b></font><br>"+Bastion_fluff+"<b>Assets:</b> Comms Network<br><b>Resources:</b> 2 RP, 3 (5EXP), 4 Rare equipment",{direction:"center"});
+
+var Quire_1 = L.circle(Quire_k, quireStyle);
+Quire_1.bindTooltip("<font size='3'><b>Quire</b></font><br>"+Quire_fluff+"<b>Assets:</b> Intelligence Network, Tactical Uplink<br><b>Resources:</b> 2 RP, 2 (5EXP), 3 Base slot",{direction:"center"});
+
+var Bauxite_Mine_1 = L.polygon(Bauxite_Mine_k, obicanStyle);
+Bauxite_Mine_1.bindTooltip("<font size='3'><b>Bauxite Mine</b></font><br>"+BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
+
+var Biodome_3_1 = L.circle(Biodome_3_k, biodomeStyle);
+Biodome_3_1.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_2_1 = L.circle(Biodome_2_k, biodomeStyle);
+Biodome_2_1.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_1_1 = L.circle(Biodome_1_k, biodomeStyle);
+Biodome_1_1.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+
+var Headquarters_1 = L.polygon(Headquarters_k, obicanStyle);
+Headquarters_1.bindTooltip("<font size='3'><b>Headquarters</b></font><br>"+ Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
+
+var teritoriji_1 = L.layerGroup([Storage_1, Barracks_1, Chapel_1, Library_1, Entrance_Hall_1, Generator_1, B7_1, Bastion_1, Quire_1, Bauxite_Mine_1, Biodome_1_1, Biodome_2_1, Biodome_3_1, Headquarters_1]);
+var teritoriji_1_array = [Storage_1, Barracks_1, Chapel_1, Library_1, Entrance_Hall_1, Generator_1, B7_1, Bastion_1, Quire_1, Bauxite_Mine_1, Biodome_1_1, Biodome_2_1, Biodome_3_1, Headquarters_1];
+
+
+battle_1_1 = L.marker([3000, 1500], {icon: battle});
+battle_1_1.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
+"Victory points: </b>10 - 12 - 4<br><b>Casualties: </b><br>- The Newseam Rattlesnakes: Obed Peck (Cerebral affliction), Bugs Lobe (Cerebral Affliction)");
+battle_1_1.addTo(teritoriji_1);
+
+harlequins_1 = L.marker([2350, 1300], {icon: harlequins});
+harlequins_1.bindTooltip("<font size='3'><b>The Baiq's Bazaar Bunch</b></font>");
+harlequins_1.addTo(teritoriji_1);
+heretic_astartes_1 = L.marker([3300, 1000], {icon: heretic_astartes});
+heretic_astartes_1.bindTooltip("<font size='3'><b>The Haar</b></font>");
+heretic_astartes_1.addTo(teritoriji_1);
+genestealers_1 = L.marker([4150, 2500], {icon: genestealers});
+genestealers_1.bindTooltip("<font size='3'><b>The Newseam Rattlesnakes</b></font>");
+genestealers_1.addTo(teritoriji_1);
+
+
+
+//kriegs_2 = L.marker([3300, 2500], {icon: kriegs});
+//kriegs_2.bindTooltip("<font size='3'><b>The Bridgeburners</b></font>");
+//kriegs_2.addTo(teritoriji_2);
+
+
+//############################################################################################################################################
+//Session 2
 
 var Storage_2 = L.polygon(Storage_k, obicanStyle);
 Storage_2.bindTooltip("<font size='3'><b>Storage</b></font><br>"+ Storage_fluff + "<b>Assets:</b> Expanded Armoury, Surveillance System, Engineering Bay</b><br><b>Resources:</b> 2 RP, 4 (5EXP), 4 Rare equipment, 3 Base slot",{direction:"center"});
@@ -505,11 +675,11 @@ var Bauxite_Mine_2 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_2.bindTooltip("<font size='3'><b>Bauxite Mine</b></font><br>"+BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_2 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_2.bindTooltip("<font size='3'><b>Biodome 3</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_2.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_2 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_2.bindTooltip("<font size='3'><b>Biodome 2</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_2.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_2 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_2.bindTooltip("<font size='3'><b>Biodome 1</b></font>"+Biodomes_fluff+"<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_2.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_2 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_2.bindTooltip("<font size='3'><b>Headquarters</b></font><br>"+ Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
@@ -518,10 +688,25 @@ var teritoriji_2 = L.layerGroup([Storage_2, Barracks_2, Chapel_2, Library_2, Ent
 var teritoriji_2_array = [Storage_2, Barracks_2, Chapel_2, Library_2, Entrance_Hall_2, Generator_2, B7_2, Bastion_2, Quire_2, Bauxite_Mine_2, Biodome_1_2, Biodome_2_2, Biodome_3_2, Headquarters_2];
 
 
-battle_2_1 = L.marker([3000, 1500], {icon: battle});
-battle_2_1.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
+battle_1_2 = L.marker([1000, 1500], {icon: battle});
+battle_1_2.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
 "Victory points: </b>10 - 12 - 4<br><b>Casualties: </b><br>- The Newseam Rattlesnakes: Obed Peck (Cerebral affliction), Bugs Lobe (Cerebral Affliction)");
-battle_2_1.addTo(teritoriji_2);
+battle_1_2.addTo(teritoriji_2);
+
+battle_2_2 = L.marker([2000, 1500], {icon: battle});
+battle_2_2.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
+"Victory points: </b>10 - 12 - 4<br><b>Casualties: </b><br>- The Newseam Rattlesnakes: Obed Peck (Cerebral affliction), Bugs Lobe (Cerebral Affliction)");
+battle_2_2.addTo(teritoriji_2);
+
+battle_3_2 = L.marker([3000, 1500], {icon: battle});
+battle_3_2.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
+"Victory points: </b>10 - 12 - 4<br><b>Casualties: </b><br>- The Newseam Rattlesnakes: Obed Peck (Cerebral affliction), Bugs Lobe (Cerebral Affliction)");
+battle_3_2.addTo(teritoriji_2);
+
+battle_4_2 = L.marker([4000, 1500], {icon: battle});
+battle_4_2.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br><font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br><b>Opposing teams: </b>The Baiq's Bazaar Bunch vs. The Haar vs. The Newseam Rattlesnakes<br><b>"+
+"Victory points: </b>10 - 12 - 4<br><b>Casualties: </b><br>- The Newseam Rattlesnakes: Obed Peck (Cerebral affliction), Bugs Lobe (Cerebral Affliction)");
+battle_4_2.addTo(teritoriji_2);
 
 harlequins_2 = L.marker([2350, 1300], {icon: harlequins});
 harlequins_2.bindTooltip("<font size='3'><b>The Baiq's Bazaar Bunch</b></font>");
@@ -530,7 +715,7 @@ heretic_astartes_2 = L.marker([3300, 1000], {icon: heretic_astartes});
 heretic_astartes_2.bindTooltip("<font size='3'><b>The Haar</b></font>");
 heretic_astartes_2.addTo(teritoriji_2);
 genestealers_2 = L.marker([4150, 2500], {icon: genestealers});
-genestealers_2.bindTooltip("<font size='3'><b>The Newseam Rattlesnakes</b></font>");
+//genestealers_2.bindTooltip("<font size='3'><b>The Newseam Rattlesnakes</b></font>");
 genestealers_2.addTo(teritoriji_2);
 
 
@@ -541,8 +726,49 @@ genestealers_2.addTo(teritoriji_2);
 
 
 //############################################################################################################################################
+//liste
+var indeksiLayera = [73, 78, 79, 80];
+var sviTeritoriji = [teritoriji_0_array, teritoriji_1_array, teritoriji_2_array];
+var sveIkone = [battle, battleAlt, kommandos, kommandosAlt, dguard, dguardAlt, harlequins, harlequinsAlt, heretic_astartes, heretic_astartesAlt, kriegs, kriegsAlt, metalica, metalicaAlt, rtraders, rtradersAlt, genestealers, genestealersAlt];
+var sviMarkeri = [battle_1_1, harlequins_1, heretic_astartes_1, genestealers_1, battle_1_2, battle_2_2, battle_3_2, battle_4_2, harlequins_2, heretic_astartes_2,genestealers_2];
+var sveIkoneSize = [];
+for(var i=0; i<sveIkone.length ;i++){
+    sveIkoneSize.push(sveIkone[i].options.iconSize);
+}
+var sveIkoneAnchor = [];
+for(var i=0; i<sveIkone.length ;i++){
+    sveIkoneAnchor.push(sveIkone[i].options.iconAnchor);
+}
 
-
+var rankovi = ["Adept", "Veteran", "Ace", "Grizzled", "Revered"];
+var scars = ["Slain", "Critical Impairment", "Severe Concussion", "Sapped Strength", "Lingering Ailment", "Cerebral Affliction"];
+var sviKommando = [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviDGuard= [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviHarlequin = [["tblblblblblb",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviHAstartes = [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviKrieg = [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviMetalica = [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviRtrader = [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]]],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]]]];
+var sviRClaw = [
+    ["Amos Marsh",[0,2,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Gobb Pyle",[0,2,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Gorge la Forge",[0,1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Jed Black",[0,1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Jayne Shea",[0,1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Childe",[0,1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Zadok Alun",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Obed Peck",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Sultan Frye",[0,2,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Malcolm Eages",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Bugs Lobe",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],
+    ["Ghaster Eliot",[0,-1,-1,-1,-1],[[],[],[],[],[],[]]],
+];
+var sviTimovi = [sviKommando, sviDGuard, sviHarlequin, sviHAstartes, sviKrieg, sviMetalica, sviRtrader, sviRClaw];
+var teamFluff =[
+    "<center><img src=rclawbt.png height='59' width='46'></center><br><font size='3'><b>The Newseam Rattlesnakes</b></font><br>",
+    "<center><img src=rclawbt.png height='59' width='46'></center><br><font size='3'><b>The Newseam Rattlesnakes</b></font><br>"
+];
+//############################################################################################################################################
 
 var baseMaps = {
     "Detaljna mapa": detaljna_mapa,
@@ -551,38 +777,24 @@ var nis_lol = L.layerGroup([]).addTo(map);
 var overlayMaps = {
     "<span style='color: orange'><font size='3'>Without overlay</font></span>": nis_lol,
     "<span style='color: orange'><font size='3'>Starting state</font></span>": teritoriji_0,
-    "<span style='color: orange'><font size='3'>Session 1</font></span>": teritoriji_2//mogu ih zvat sesionima, ne turnovima. mozda je tak lakse
+    "<span style='color: orange'><font size='3'>Session 1</font></span>": teritoriji_1,
+    "<span style='color: orange'><font size='3'>Session 2</font></span>": teritoriji_2
 };
-
-var sveIkone = [battle, harlequins, heretic_astartes, kriegs, genestealers];
-var slikeIkonaArray = ['battlebtd.png', 'harlequinsbtd.png', 'hastartesbtd.png', 'kriegbtd.png', 'rclawbtd.png'];
-var slikeIkonaArrayHighlight = ['battlebthred.png', 'harlequinsbth.png', 'hastartesbth.png', 'kriegbth.png', 'rclawbth.png']
-var sviMarkeri = [battle_2_1, harlequins_2, heretic_astartes_2, genestealers_2];
-var sveIkoneSizeArray = [];
-for(var i=0; i<sveIkone.length ;i++){
-    sveIkoneSizeArray.push(sveIkone[i].options.iconSize);
-}
-var sveIkoneAnchorArray = [];
-for(var i=0; i<sveIkone.length ;i++){
-    sveIkoneAnchorArray.push(sveIkone[i].options.iconAnchor);
-}
-
 var layerControl = L.control.layers(overlayMaps,null, {collapsed:false}).addTo(map);
 var legend = L.control({position: 'topright'});
 legend.onAdd = function (map) {
     var div = L.DomUtil.create('div', 'info legend')
-        div.innerHTML += " <center><img src=baxesbt.png height='52' width='56'></center><br>";
-        div.innerHTML += " <center><img src=dguardbt.png height='50' width='50'></center><br>";
-        div.innerHTML += " <center><img src=harlequinsbt.png height='71' width='37'></center><br>";
-        div.innerHTML += " <center><img src=hastartesbt.png height='60' width='60'></center><br>";
-        div.innerHTML += " <center><img src=kriegbt.png height='52' width='55'></center><br>";
-        div.innerHTML += " <center><img src=metalicabt.png height='47' width='55'></center><br>";
-        div.innerHTML += " <center><img src=rtradersbt.png height='38' width='78'></center><br>";
-        div.innerHTML += " <center><img src=rclawbt.png height='59' width='46'></center><br>";
+        div.innerHTML += "<center><img src=baxesbt.png height='52' width='56'></center><br>";
+        div.innerHTML += "<center><img src=dguardbt.png height='50' width='50'></center><br>";
+        div.innerHTML += "<center><img src=harlequinsbt.png height='71' width='37'></center><br>";
+        div.innerHTML += "<center><img src=hastartesbt.png height='60' width='60'></center><br>";
+        div.innerHTML += "<center><img src=kriegbt.png height='52' width='55'></center><br>";
+        div.innerHTML += "<center><img src=metalicabt.png height='47' width='55'></center><br>";
+        div.innerHTML += "<center><img src=rtradersbt.png height='38' width='78'></center><br>";
+        div.innerHTML += "<center><img src=rclawbt.png height='59' width='46'></center><br>";
     return div;
 };
 legend.addTo(map);
-
 var info = L.control({position:'topleft', opacity: 1});
 info.onAdd = function (map) {
     this._div = L.DomUtil.create('div', 'info');
@@ -593,68 +805,149 @@ info.update = function (props) {
     this._div.innerHTML = props;
 };
 info.addTo(map);
-info.update('Relay fluff');
+info.update("<font size='3'><b>The Relay</b></font>");
 
-function highlightFeature(e) {
-    var layer = e.target;
-    layer.closeTooltip()
-    layer.setStyle({
-    weight: 5,
-    color: 'red',
-    fillColor: ' #red ',
-    fillOpacity: 0.50
-    })
-    layer.bringToFront();
-    info.update(layer.getTooltip().getContent());
+html_imeLika = null;
+html_rank = null;
+html_scars = null;
+function iscitaj(i,j) {
+    html_vraceni = "";
+    for(var k = 0; k < sviTimovi[i].length; k++) {
+        html_imeLika = sviTimovi[i][k][0];
+        html_rank = rankovi[sviTimovi[i][k][1].findLastIndex(vrijednost => vrijednost <= j && vrijednost != -1)];
+        html_scars = "";
+        for(n=0; n<6;n++){
+            if (sviTimovi[i][k][2][n].filter(vrijednost => vrijednost <= j).length % 2 == 1) {
+                html_scars += scars[n] + " ";
+            }
+        }
+        if (html_scars != "") {html_scars = "(" + html_scars.slice(0,-1) + ")"}
+        html_vraceni += "-" + html_imeLika + " " + html_rank + " " + html_scars + "<br>";
+    }
+    return html_vraceni;
 }
-function resetHighlight(e) {
-    var layer = e.target;
-    layer.setStyle(obicanStyle)
-    info.update("<font size='3'><b>The Relay</b></font>");
+
+function alt(indekss) {
+    if(indekss % 2 == 0) {return indekss +1;}
+    return indekss - 1;
 }
 
-var tempIcon = L.icon();
-
-function highlightFeatureMarkers(e) {
+var selectedL = null;
+var indeksTemp = 0;
+function highlightLayer(e) {
     var layer = e.target;
     layer.closeTooltip();
-    var i_temp = sveIkone.indexOf(layer.getIcon());
-    tempIcon.options = sveIkone[i_temp];
-    tempIcon.options.iconUrl = slikeIkonaArrayHighlight[i_temp];
-    layer.setIcon(tempIcon);
-    info.update(layer.getTooltip().getContent());
+    if (selectedL == null){
+        if(layer instanceof L.Polygon || layer instanceof L.Circle){
+            layer.setStyle(highlightStyle)
+            layer.bringToFront();
+            info.update(layer.getTooltip().getContent());
+        }
+        if (layer instanceof L.Marker){
+            indeksTemp = layer.getIcon().options.indeks;
+            layer.setIcon(sveIkone[alt(indeksTemp)]);
+            if(indeksTemp > 1) {
+                info.update(teamFluff[0] + iscitaj(indeksTemp/2-1, CILayera));
+            }
+            else {
+                info.update(layer.getTooltip().getContent());
+            }
+        }
+    }
 }
-function resetHighlightMarkers(e) {
+//"<center><img src=first_contact_pic.jpg height='405' width='300'></center><br>"
+function resetLayer(e) {
     var layer = e.target;
-    var i_temp = slikeIkonaArrayHighlight.indexOf(layer.getIcon().options.iconUrl);
-    tempIcon.options = sveIkone[i_temp].options;
-    tempIcon.options.iconUrl = slikeIkonaArray[i_temp];
-    layer.setIcon(sveIkone[i_temp]);
+    if (selectedL == null){
+        if(layer instanceof L.Polygon || layer instanceof L.Circle){
+            layer.setStyle(obicanStyle);
+        }
+        if (layer instanceof L.Marker && layer.getIcon().options.indeks%2 == 1){
+            layer.setIcon(sveIkone[alt(layer.getIcon().options.indeks)]);
+        }
+        info.update("<font size='3'><b>The Relay</b></font>");
+    }
+}
+function clickLayer(e) {
+    L.DomEvent.stopPropagation(e);
+    var layer = e.target;
+    layer.closeTooltip();
+    if(selectedL instanceof L.Polygon || selectedL instanceof L.Circle){
+        selectedL.setStyle(obicanStyle);
+    }
+    if(selectedL instanceof L.Marker){
+        selectedL.setIcon(sveIkone[alt(layer.getIcon().options.indeks)]);
+    }
+    if(selectedL == layer){
+        info.update("<font size='3'><b>The Relay</b></font>");
+        selectedL = null;
+        return;
+    }
+    if (layer instanceof L.Polygon || layer instanceof L.Circle){
+        layer.setStyle(highlightStyle);
+        layer.bringToFront();
+        info.update(layer.getTooltip().getContent()); 
+    }
+    if (layer instanceof L.Marker && layer.getIcon().options.indeks%2 == 0){
+        indeksTemp = layer.getIcon().options.indeks;
+        layer.setIcon(sveIkone[alt(indeksTemp)]);
+        if(indeksTemp > 1) {
+            info.update(iscitaj(indeksTemp/2-1, CILayera));
+        }
+        else {
+            info.update(layer.getTooltip().getContent());
+        }
+    }
+    selectedL = layer;  
+}
+function mapClick(e) {
+    if(selectedL instanceof L.Polygon || selectedL instanceof L.Circle){selectedL.setStyle(obicanStyle)};
+    if(selectedL instanceof L.Marker){
+        selectedL.setIcon(sveIkone[alt(layer.getIcon().options.indeks)]);
+    };
+    selectedL = null; 
     info.update("<font size='3'><b>The Relay</b></font>");
 }
-
-for(var i=0; i<teritoriji_0_array.length ;i++){
-    teritoriji_0_array[i].on('mouseover',highlightFeature);
-    teritoriji_0_array[i].on('mouseout',resetHighlight);
-    teritoriji_2_array[i].on('mouseover',highlightFeature);
-    teritoriji_2_array[i].on('mouseout',resetHighlight);
+var CILayera = 0;
+function controlChange(e) {
+    if(selectedL instanceof L.Polygon || selectedL instanceof L.Circle){selectedL.setStyle(obicanStyle)};
+    if(selectedL instanceof L.Marker){
+        selectedL.setIcon(sveIkone[alt(layer.getIcon().options.indeks)]);
+    };
+    selectedL = null; 
+    CILayera = indeksiLayera.indexOf(e.layer._leaflet_id)-1;
+    info.update("<font size='3'><b>The Relay</b></font>");
 }
-for(var i=0; i<sviMarkeri.length ;i++){
-    sviMarkeri[i].on('mouseover',highlightFeatureMarkers);
-    sviMarkeri[i].on('mouseout',resetHighlightMarkers);
-}
-
 function resizeIkone() {
     var currentZoom = map.getZoom();
     for(var i=0; i<sveIkone.length ;i++){
-        sveIkone[i].options.iconSize =  [sveIkoneSizeArray[i][0]*(2**(currentZoom+3)),sveIkoneSizeArray[i][1]*(2**(currentZoom+3))];
-        sveIkone[i].options.iconAnchor =  [sveIkoneAnchorArray[i][0]*(2**(currentZoom+3)),sveIkoneAnchorArray[i][1]*(2**(currentZoom+3))];
+        sveIkone[i].options.iconSize =  [sveIkoneSize[i][0]*(2**(currentZoom+3)),sveIkoneSize[i][1]*(2**(currentZoom+3))];
+        sveIkone[i].options.iconAnchor =  [sveIkoneAnchor[i][0]*(2**(currentZoom+3)),sveIkoneAnchor[i][1]*(2**(currentZoom+3))];
     };
     for(var i=0; i<sviMarkeri.length ;i++){
         sviMarkeri[i].setIcon(sviMarkeri[i].getIcon());
     };
 }
+for(var i=0; i<sviTeritoriji.length ;i++){
+    for(var j=0; j<sviTeritoriji[i].length ;j++){
+        sviTeritoriji[i][j].on('mouseover',highlightLayer);
+        sviTeritoriji[i][j].on('mouseout',resetLayer);
+        sviTeritoriji[i][j].on('click', clickLayer);
+    }
+}
+for(var i=0; i<sviMarkeri.length ;i++){
+    sviMarkeri[i].on('mouseover',highlightLayer);
+    sviMarkeri[i].on('mouseout',resetLayer);
+    sviMarkeri[i].on('click',clickLayer);
+}
+map.on('click', mapClick);
+map.on('baselayerchange', controlChange);
 map.on('zoomend', resizeIkone);
+//treba celaner popup removal kod markera, uvijek malo skoci
+//maknuo doubleclick zoom, treba provjerit zezne li to stogod na mobitelu
+//mozda malo bolje ove html_rank i html_scar
+//mozda bolje ovo da nema tooltipa kod markera
+//ostalo zezanje s displayanjem tooltipa kad su batte markeri, inace ovo ostalo
   </script>
 </body>
 </html>
