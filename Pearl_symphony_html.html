@@ -65,28 +65,28 @@
     }
     @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
         .info {
-        padding: 22px 28px;
-        font: 18px/20px Arial, Helvetica, sans-serif;
+        padding: 18px 24px;
+        font: 14px/16px Arial, Helvetica, sans-serif;
         background: rgba(365,365,365,0.8);
         box-shadow: 0 0 15px rgba(0,0,0,0.2);
         color: black;
         border-radius: 5px;
         line-height: 1.6;
-        max-width: 500px;
+        max-width: 400px;
         word-wrap: break-word;
         pointer-events: none;
         }
         .info p1 {
-        font-size: 20;
+        font-size: 16;
         }
         .info h4 {
         margin: 0 0 5px;
         color: #777;
         }
         .legend {
-        padding: 14px 14px;
+        padding: 10px 10px;
         background: rgba(365,365,365,0.8);
-        box-shadow: 0 0 19px rgba(0,0,0,0.2);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
         pointer-events: none;
         }
         span.b {
@@ -652,11 +652,11 @@ var Bauxite_Mine_0 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_0.bindTooltip(BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_0 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_0.bindTooltip("<p1><b>Biodome 3</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_0.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_0 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_0.bindTooltip("<p1><b>Biodome 2</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_0.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_0 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_0.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_0.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_0 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_0.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
@@ -697,11 +697,11 @@ var Bauxite_Mine_1 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_1.bindTooltip(BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_1 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_1.bindTooltip("<p1><b>Biodome 3</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_1.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_1 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_1.bindTooltip("<p1><b>Biodome 2</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_1.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_1 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_1.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_1.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_1 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_1.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 3 Rare equipment, 2 Base slot",{direction:"center"});
@@ -710,7 +710,7 @@ var teritoriji_1_array = [Storage_1, Barracks_1, Chapel_1, Library_1, Entrance_H
 var teritoriji_1 = L.layerGroup(teritoriji_1_array);
 
 battle_1_1 = L.marker([3000, 1500], {icon: battle});
-battle_1_1.bindTooltip("<p1><b>First contact in the Relay</b></p1><br>"+
+battle_1_1.bindTooltip("<font size='3'><b>First contact in the Relay</b></font><br>"+
 "<font color='#626567 '><i>Shots were fired, grenades were launched, books were read...</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The B'aiq's Bazaar Bunch<span class='below'>(10 VP)</span></span> <span class='b'> vs.</span>"+
@@ -763,11 +763,11 @@ var Bauxite_Mine_2 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_2.bindTooltip(BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_2 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_2.bindTooltip("<p1><b>Biodome 3</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_2.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_2 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_2.bindTooltip("<p1><b>Biodome 2</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_2.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_2 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_2.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_2.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_2 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_2.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 2 Rare equipment, 2 Base slot",{direction:"center"});
@@ -776,7 +776,7 @@ var teritoriji_2_array = [Storage_2, Barracks_2, Chapel_2, Library_2, Entrance_H
 var teritoriji_2 = L.layerGroup(teritoriji_2_array);
 
 battle_1_2 = L.marker([3700, 895], {icon: battle});
-battle_1_2.bindTooltip("<p1><b>Bridgeburners' Recon Disaster</b></p1><br>" + 
+battle_1_2.bindTooltip("<font size='3'><b>Bridgeburners' Recon Disaster</b></font><br>" + 
 "<font color='#626567 '><i>At 9:14, Terran time, contact was reestablished with the Bridgeburners recon squad, whereupon sergeant Whiskeyjack explained that they encountered Aeldari, of particular tactical mobility, and were forced to retreat. Notably, the sergeant refused to make any further comments.</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The B'aiq's Bazaar<span class='below'>(9 VP)</span></span> <span class='b'> vs.</span>"+
@@ -788,7 +788,7 @@ battle_1_2.addTo(teritoriji_2);
 battle_1_2.off();
 
 battle_2_2 = L.marker([3763,2248], {icon: battle});
-battle_2_2.bindTooltip("<p1><b>Blood in the Wafers</b></p1><br>"+
+battle_2_2.bindTooltip("<font size='3'><b>Blood in the Wafers</b></font><br>"+
 "<font color='#626567 '><i>The Newseam Rattlesnakes and the Haar catch eachother unawares in the marsh rice biodome, with the Rattlesnakes ultimately succumbing to the tide of malice, forcing a retreat.</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The Haar<span class='below'>(10 VP)</span></span> <span class='b'> vs.</span>"+
@@ -801,8 +801,8 @@ battle_2_2.addTo(teritoriji_2);
 battle_2_2.off();
 
 battle_3_2 = L.marker([2500, 1900], {icon: battle});
-battle_3_2.bindTooltip("<p1><b>TBA</b></p1><br>"+
-"<font color='#626567 '><i>Our squadron of The White Hunters, ever the tinkerers, made their way towards the generator room: seeking potential advantage over the other teams by controlling the station's power supply. There they encountered the most unlikely of creatures, the greenskins of Gork's Blokes; who took a very different form of fascination with the technology. Loudness ensued, and much of what even remained of the room's abandoned instruments was rendered inoperable during the engagement. The White Hunters were left wavering for surrendering such a cache of engineering to orks.</i></font><br>"+
+battle_3_2.bindTooltip("<font size='3'><b>TBA</b></font><br>"+
+"<font color='#626567 '><i>TBA</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The Gork's Blokes<span class='below'>(16 VP)</span></span> <span class='b'> vs.</span>"+
 "<span class='above'>The White Hunters<span class='below'>(7 VP)</span></span><br>"+
@@ -812,7 +812,7 @@ battle_3_2.addTo(teritoriji_2);
 battle_3_2.off();
 
 battle_4_2 = L.marker([3800, 1650], {icon: battle});
-battle_4_2.bindTooltip("<p1><b>The Entrance Hall Thunderdome</b></p1><br>"+
+battle_4_2.bindTooltip("<font size='3'><b>The Entrance Hall Thunderdome</b></font><br>"+
 "<font color='#626567 '><i>Surprised at the remaining combat readiness of the Bridgeburners, the B'aiq's Bazaar chased the retreating guardsmen into the Entrance Hall, attempting to cut them off. What surprised even the Harlequin troupe was that the nearby squadron of The White Hunters and the team of Newseam Rattlesnakes were already in a standoff at the exact location of the ambush. Some would appreciate the irony of the teams receiving their baptism of fire at the very entry point of the complex. Khorne did laugh.</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The B'aiq's Bazaar<span class='below'>(5 VP)</span></span> <span class='b'> vs.</span>"+
@@ -877,11 +877,11 @@ var Bauxite_Mine_3 = L.polygon(Bauxite_Mine_k, obicanStyle);
 Bauxite_Mine_3.bindTooltip(BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 2 RP, 5 Rare equipment",{direction:"center"});
 
 var Biodome_3_3 = L.circle(Biodome_3_k, biodomeStyle);
-Biodome_3_3.bindTooltip("<p1><b>Biodome 3</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_3_3.bindTooltip("<font size='3'><b>Biodome 3</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_2_3 = L.circle(Biodome_2_k, biodomeStyle);
-Biodome_2_3.bindTooltip("<p1><b>Biodome 2</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_2_3.bindTooltip("<font size='3'><b>Biodome 2</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 var Biodome_1_3 = L.circle(Biodome_1_k, biodomeStyle);
-Biodome_1_3.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+Biodome_1_3.bindTooltip("<font size='3'><b>Biodome 1</b></font><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
 
 var Headquarters_3 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_3.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 2 Rare equipment, 2 Base slot",{direction:"center"});
@@ -890,19 +890,19 @@ var teritoriji_3_array = [Storage_3, Barracks_3, Chapel_3, Library_3, Entrance_H
 var teritoriji_3 = L.layerGroup(teritoriji_3_array);
 
 battle_1_3 = L.marker([2510, 1900], {icon: battle});
-battle_1_3.bindTooltip("<p1><b>Thus spoke Whiskeyjack</b></p1><br>" + 
-"<font color='#626567 '><i>The little Bridgeburners have gotten uppity. Sheltering themselves in the generator room, they seek to hook up their radio equipment and send a distress signal, wary of everyone in the facility being alerted to them doing so. And their defensive parameters? A provocation of the highest order! For they are a tragedy. We will show them the true meaning of tragedy. The little Bridgeburners shall be taught a lesson they will never forget.</i></font><br>"+
+battle_1_3.bindTooltip("<font size='3'><b>Bridgeburners' Recon Disaster</b></font><br>" + 
+"<font color='#626567 '><i>At 9:14, Terran time, contact was reestablished with the Bridgeburners recon squad, whereupon sergeant Whiskeyjack explained that they encountered Aeldari, of particular tactical mobility, and were forced to retreat. Notably, the sergeant refused to make any further comments.</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The B'aiq's Bazaar<span class='below'>(12 VP)</span></span> <span class='b'> vs.</span>"+
 "<span class='above'>The Bridgeburners<span class='below'>(4 VP)</span></span><br>"+
 "<b>Casualties: </b><br>"+
 "The B'aiq's Bazaar:<br> - Biara Fly (Cerebral Affliction)<br><br>"+
-"<center><img src=generatorr_pic.jpeg height='197' width='348' style='opacity:0.8'></center>");
+"<center><img src=generator_pic.jpeg height='317' width='221' style='opacity:0.8'></center>");
 battle_1_3.addTo(teritoriji_3);
 battle_1_3.off();
 
 battle_2_3 = L.marker([2385, 1182], {icon: battle});
-battle_2_3.bindTooltip("<p1><b>Race for the equipment</b></p1><br>"+
+battle_2_3.bindTooltip("<font size='3'><b>Race for the equipment</b></font><br>"+
 "<font color='#626567 '><i>Although they were facing two foes, the Newseam Rattlesnakes were eager to put the newly acquired blasting charges to the test. Malcolm and Bugs devise a cunning plan that gets them and their Kelermorph out of action due to a Sicarian contingency. Meanwhile, Amos and his pickaxe bust open a webbed Possesed Chaos Space Marine.</i></font><br>"+
 "<b>Opposing teams: </b><br>"+
 "<span class='above'>The Haar<span class='below'>(10 VP)</span></span> <span class='b'> vs.</span>"+
@@ -1242,8 +1242,7 @@ map.on('baselayerchange', controlChange);
 map.on('zoomend', resizeIkone);
 //mozda malo bolje ove html_rank i html_scar
 
-//mobitel povecat
-
+//mobitel jos jednom testirat
 //stavit da je relay lore sam kad kliknes il nes
 //var videoOverlayy = L.videoOverlay('luka_chapel.mp4', Chapel_k, {
 //    opacity: 0.8,
