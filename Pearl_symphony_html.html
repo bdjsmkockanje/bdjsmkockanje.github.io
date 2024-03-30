@@ -51,6 +51,7 @@
     position: relative;
     display: inline-block;
     margin-bottom: 1em;
+    font: 14px/16px Arial, Helvetica, sans-serif;
     }
     .above .below {
     position: absolute;
@@ -99,6 +100,7 @@
         position: relative;
         display: inline-block;
         margin-bottom: 1em;
+        font: 18px/20px Arial, Helvetica, sans-serif;
         }
         .above .below {
         position: absolute;
@@ -851,7 +853,7 @@ Barracks_3.bindTooltip(Barracks_fluff + "<b>Assets:</b> None<br><b>Resources:</b
 var Chapel_3 = L.polygon(Chapel_k, obicanStyle);
 Chapel_3.bindTooltip("<p1><b>Profane Shrine</b></p1><br>"+
 "<font color='#626567 '><i>Built as a monument to the decaying corpse Emperor, this marble monstrosity has been repurposed by the Haar as their unholy foothold from which they can further continue to push in different areas of the relay. "+
-"In the center of the former chapel the Haar have stacked piles of gore and bodies whose stench permeates the area, but its purpose remains indiscernible, as does the purpose of the blasphemous runes carves into "+
+"In the center of the former chapel the Haar have stacked piles of gore and bodies whose stench permeates the area, but its purpose remains indiscernible, as does the purpose of the blasphemous runes carved into "+
 "the walls and floor. Each time the Haar retreats back into their dark stronghold a faint, erratic chanting can be heard from within, its tall walls allowing it to echo into the surrounding areas.</i></font><br>" + 
 "<b>Occupiers:</b> The Haar<br>"+
 "<b>Assets:</b> War Shrine, Comms Network<br><b>Resources:</b> 2 RP, 2 (5EXP)",{direction:"center"});
@@ -1209,7 +1211,9 @@ var CILayera = 0;
 var indeksiLayera = [nis_lol._leaflet_id, teritoriji_0._leaflet_id, teritoriji_1._leaflet_id, teritoriji_2._leaflet_id, teritoriji_3._leaflet_id]; //ostavi ga tu
 function controlChange(e) {
     for(var i=0; i<sviVidei.length ;i++){
-        sviVidei[i].getElement().play();
+        if(map.hasLayer(sviVidei[i])){
+            sviVidei[i].getElement().play();
+        }
     };
     if(selectedL instanceof L.Polygon || selectedL instanceof L.Circle){selectedL.setStyle(obicanStyle)};
     if(selectedL instanceof L.Marker){
@@ -1255,18 +1259,10 @@ map.on('click', mapClick);
 map.on('baselayerchange', controlChange);
 map.on('zoomend', resizeIkone);
 //mozda malo bolje ove html_rank i html_scar
-
 //mobitel slike povecat
 
 //stavit da je relay lore sam kad kliknes il nes
-//var videoOverlayy = L.videoOverlay('luka_chapel.mp4', Chapel_k, {
-//    opacity: 0.8,
-//    autoplay: true,
-//    muted: true,
-//    playsInline: true,
-//    pane: 'videos'
-//    });
-//map.addLayer(videoOverlayyy);
+//vedran treba popravit video da fino loopa
   </script>
 </body>
 </html>
