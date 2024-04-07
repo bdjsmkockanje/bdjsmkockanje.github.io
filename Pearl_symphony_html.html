@@ -620,6 +620,22 @@ var genestealersAlt = L.icon({
 });
 
 
+var haarChapel = L.videoOverlay('megahit2.webm', [[1732,-395],[1732 + 575*3.9,-395+650*3.9]], {
+    opacity: 0.8,
+    autoplay: true,
+    muted: true,
+    playsInline: true,
+    pane: 'videos'
+    }
+);
+var harleBastion = L.videoOverlay('baiqbastion.webm', [[2512,2610],[2512 + 1920*0.6,2610+1080*0.6]], {
+    opacity: 0.8,
+    autoplay: true,
+    muted: true,
+    playsInline: true,
+    pane: 'videos'
+    }
+);
 //############################################################################################################################################
 //Session 0
 
@@ -857,15 +873,6 @@ Chapel_3.bindTooltip("<p1><b>Profane Shrine</b></p1><br>"+
 "the walls and floor. Each time the Haar retreats back into their dark stronghold a faint, erratic chanting can be heard from within, its tall walls allowing it to echo into the surrounding areas.</i></font><br>" + 
 "<b>Occupiers:</b> The Haar<br>"+
 "<b>Assets:</b> War Shrine, Comms Network<br><b>Resources:</b> 2 RP, 2 (5EXP)",{direction:"center"});
-var haarChapel_3 = L.videoOverlay('megahit2.webm', [[1732,-395],[1732 + 575*3.9,-395+650*3.9]], {
-    opacity: 0.8,
-    autoplay: true,
-    muted: true,
-    playsInline: true,
-    pane: 'videos'
-    }
-);
-haarChapel_3
 
 var Library_3 = L.polygon(Library_k, obicanStyle);
 Library_3.bindTooltip(Library_fluff + "<b>Assets:</b> Med Bay, Intelligence Network</b><br><b>Resources:</b> 2 RP, 5 (5EXP), 2 Base slot",{direction:"center"});
@@ -898,7 +905,7 @@ Biodome_1_3.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Asset
 var Headquarters_3 = L.polygon(Headquarters_k, obicanStyle);
 Headquarters_3.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 4 (5EXP), 2 Rare equipment, 2 Base slot",{direction:"center"});
 
-var teritoriji_3_array = [Storage_3, Barracks_3, Chapel_3, haarChapel_3, Library_3, Entrance_Hall_3, Generator_3, B7_3, Bastion_3, Quire_3, Bauxite_Mine_3, Biodome_1_3, Biodome_2_3, Biodome_3_3, Headquarters_3];
+var teritoriji_3_array = [Storage_3, Barracks_3, Chapel_3, haarChapel, Library_3, Entrance_Hall_3, Generator_3, B7_3, Bastion_3, Quire_3, Bauxite_Mine_3, Biodome_1_3, Biodome_2_3, Biodome_3_3, Headquarters_3];
 var teritoriji_3 = L.layerGroup(teritoriji_3_array);
 
 battle_1_3 = L.marker([2510, 1900], {icon: battle});
@@ -922,8 +929,7 @@ battle_2_3.bindTooltip("<p1><b>Race for the equipment</b></p1><br>"+
 "<span class='above'>The Newseam Rattlesnakes<span class='below'>(9 VP)</span></span><br>"+
 "<b>Casualties: </b><br>"+
 "The Haar:<br> - Sarref, the Blade (Cerebral Affliction)<br>"+
-"The White Hunters:<br> - JU_BO_32 (Cerebral Affliction)<br>"+
-"The Newseam Rattlesnakes:<br> - Malcolm Eages (Sapped Strength)<br> - Ghaster Eliot (Sapped Strength)<br><br>" +
+"The White Hunters:<br> - JU_BO_32 (Cerebral Affliction)<br><br>"+
 "<center><img src=barracks_pic.jpeg height='193' width='368' style='opacity:0.8'></center>");
 battle_2_3.addTo(teritoriji_3);
 battle_2_3.off();
@@ -941,17 +947,110 @@ metalica_3.addTo(teritoriji_3);
 genestealers_3 = L.marker([1700, 1700], {icon: genestealers});
 genestealers_3.addTo(teritoriji_3);
 
+//############################################################################################################################################
+//Session 3
+
+var Storage_4 = L.polygon(Storage_k, obicanStyle);
+Storage_4.bindTooltip(Storage_fluff + "<b>Assets:</b> Expanded Armoury, Surveillance System, Engineering Bay</b><br><b>Resources:</b> 1 RP, 4 (5EXP), 2 Rare equipment, 3 Base slot",{direction:"center"});
+
+var Barracks_4 = L.polygon(Barracks_k, obicanStyle);
+Barracks_4.bindTooltip(Barracks_fluff + "<b>Assets:</b> None<br><b>Resources:</b> 2 RP, 3 Rare equipment",{direction:"center"});
+
+var Chapel_4 = L.polygon(Chapel_k, obicanStyle);
+Chapel_4.bindTooltip("<p1><b>Profane Shrine</b></p1><br>"+
+"<font color='#626567 '><i>Built as a monument to the decaying corpse Emperor, this marble monstrosity has been repurposed by the Haar as their unholy foothold from which they can further continue to push in different areas of the relay. "+
+"In the center of the former chapel the Haar have stacked piles of gore and bodies whose stench permeates the area, but its purpose remains indiscernible, as does the purpose of the blasphemous runes carved into "+
+"the walls and floor. Each time the Haar retreats back into their dark stronghold a faint, erratic chanting can be heard from within, its tall walls allowing it to echo into the surrounding areas.</i></font><br>" + 
+"<b>Occupiers:</b> The Haar<br>"+
+"<b>Assets:</b> War Shrine, Comms Network<br><b>Resources:</b> 2 RP, 2 (5EXP)",{direction:"center"});
+
+var Library_4 = L.polygon(Library_k, obicanStyle);
+Library_4.bindTooltip(Library_fluff + "<b>Assets:</b> Med Bay, Intelligence Network</b><br><b>Resources:</b> 2 RP, 5 (5EXP), 2 Base slot",{direction:"center"});
+
+var Entrance_Hall_4 = L.polygon(Entrance_Hall_k, obicanStyle);
+Entrance_Hall_4.bindTooltip(Entrance_Hall_fluff +"<b>Assets:</b> None<br><b>Resources:</b> 3 (5EXP)",{direction:"center"});
+
+var Generator_4 = L.polygon(Generator_k, obicanStyle);
+Generator_4.bindTooltip(Generator_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 3 RP, 1 Base slot",{direction:"center"})
+
+var B7_4 = L.polygon(B7_k, obicanStyle);
+B7_4.bindTooltip(B7_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 3 RP, 1 (5EXP)",{direction:"center"});
+
+var Bastion_4 = L.polygon(Bastion_k, obicanStyle);
+Bastion_4.bindTooltip("<p1><b>B'aiq Radio Shaq</b></p1><br>"+
+"<font color='#626567 '><i>Having scarred it from the inside with a myriad Webway portals, slits in realspace acting as a bridge between the immediate and their many sequestered assets in the Immaterium, the B'aiq's troupe held their grip of the Relay's  "+
+"bastion. Except for being their staging ground for future forays into the Relay, the bastion became a broadcast centre for the Eldar's newly ferried music. Their phantasmic, cruel and alien beats transmitted through the hijacked comms unit now "+
+"suffuse almost the entirety of the astropathic station, unnerving anyone except the Harlequins, who are motivated by it to ever greater acts of focused delinquency.</i></font><br>"+
+"<b>Occupiers:</b> The B'aiq's Bazaar<br><b>Assets:</b> Comms Network<br><b>Resources:</b> 2 RP, 2 (5EXP), 3 Rare equipment",{direction:"center"});
+
+var Quire_4 = L.circle(Quire_k, quireStyle);
+Quire_4.bindTooltip(Quire_fluff+"<b>Assets:</b> Intelligence Network, Tactical Uplink<br><b>Resources:</b> 2 RP, 2 (5EXP), 3 Base slot",{direction:"center"});
+
+var Bauxite_Mine_4 = L.polygon(Bauxite_Mine_k, obicanStyle);
+Bauxite_Mine_4.bindTooltip(BauxiteMine_fluff+"<b>Assets:</b> Stimm Stash<br><b>Resources:</b> 1 RP, 4 Rare equipment",{direction:"center"});
+
+var Biodome_3_4 = L.circle(Biodome_3_k, biodomeStyle);
+Biodome_3_4.bindTooltip("<p1><b>Biodome 3</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_2_4 = L.circle(Biodome_2_k, biodomeStyle);
+Biodome_2_4.bindTooltip("<p1><b>Biodome 2</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+var Biodome_1_4 = L.circle(Biodome_1_k, biodomeStyle);
+Biodome_1_4.bindTooltip("<p1><b>Biodome 1</b></p1><br>"+Biodomes_fluff+"<b>Assets:</b> None<br><b>Resources:</b> 2RP, 3 (5EXP), 2 Rare equipment",{direction:"center"});
+
+var Headquarters_4 = L.polygon(Headquarters_k, obicanStyle);
+Headquarters_4.bindTooltip(Headquarters_fluff + "<b>Assets:</b> Surveillance System<br><b>Resources:</b> 3 (5EXP), 2 Rare equipment, 2 Base slot",{direction:"center"});
+
+var teritoriji_4_array = [Storage_4, Barracks_4, Chapel_4, haarChapel, Library_4, Entrance_Hall_4, Generator_4, B7_4, Bastion_4, harleBastion, Quire_4, Bauxite_Mine_4, Biodome_1_4, Biodome_2_4, Biodome_3_4, Headquarters_4];
+var teritoriji_4 = L.layerGroup(teritoriji_4_array);
+
+battle_1_4 = L.marker([3390, 2100], {icon: battle});
+battle_1_4.bindTooltip("<p1><b>Qualm B4 The Storm</b></p1><br>" + 
+"<font color='#626567 '><i>As the champions of the Dark Gods fought the custodians of The Black Library around and atop the towering B7 facility, both warparties were wracked by a feral storm that managed to tear thorugh the megalithic walls of the Relay. Brutal strikes and ceaseless gunfire were inexorably obscured by the raging tempest, with the involved warriors barely perceiving the havoc beyond the activity closest to them. In the end, the Harlequins edged a victory, but at the marines' heavy exacted cost.</i></font><br>"+
+"<b>Opposing teams: </b><br>"+
+"<span class='above'>The B'aiq's Bazaar<span class='below'>(10 VP)</span></span> <span class='b'> vs.</span>"+
+"<span class='above'>The Haar<span class='below'>(8 VP)</span></span><br>"+
+"<b>Casualties: </b><br>"+
+"None<br><br>"+
+"<center><img src=showdownpic.jpeg height='320' width='210' style='opacity:0.8'></center>");
+battle_1_4.addTo(teritoriji_4);
+battle_1_4.off();
+
+battle_2_4 = L.marker([2010, 2530], {icon: battle});
+battle_2_4.bindTooltip("<p1><b>Bauxite Storm</b></p1><br>"+
+"<font color='#626567 '><i>Most military commanders would consider ambushes to be an ideal way of dealing with any living opponent. Unfortunately, the opponents that the Gork's Blokes encountered in the mines weren't quite... living. As the Bridgeburners approached, greenskin kommandos, like thunder, jumped out of every door and crevice, their firearms blazing. The response they were met with couldn't be simpler: fourteen gas masks, coldly staring at them. Unflinching, sergeant Whiskeyjack barked orders to form defensive lines, and soon after, the guardsmen counter-charged, dancing to the song of death. Whose death? The orks weren't quite sure. Even the sniper duo of Sorry and Hedge found themselves in the eye of the storm.</i></font><br>"+
+"<b>Opposing teams: </b><br>"+
+"<span class='above'>The Gork's Blokes<span class='below'>(10 VP)</span></span> <span class='b'> vs.</span>"+
+"<span class='above'>The Bridgeburners<span class='below'>(9 VP)</span></span><br>"+
+"<b>Casualties: </b><br>"+
+"The Haar:<br> - Sarref, the Blade (Cerebral Affliction)<br>"+
+"The White Hunters:<br> - JU_BO_32 (Cerebral Affliction)<br><br>"+
+"<center><img src=bauxitpic.jpeg height='210' width='320' style='opacity:0.8'></center>");
+battle_2_4.addTo(teritoriji_4);
+battle_2_4.off();
+
+kommandos_4 = L.marker([1810, 2770], {icon: kommandos});
+kommandos_4.addTo(teritoriji_4);
+harlequins_4 = L.marker([3070, 2900], {icon: harlequins});
+harlequins_4.addTo(teritoriji_4);
+heretic_astartes_4 = L.marker([3700, 895], {icon: heretic_astartes});
+heretic_astartes_4.addTo(teritoriji_4);
+kriegs_4 = L.marker([2310, 2440], {icon: kriegs});
+kriegs_4.addTo(teritoriji_4);
+metalica_4 = L.marker([2385, 1370], {icon: metalica});
+metalica_4.addTo(teritoriji_4);
+genestealers_4 = L.marker([1700, 1700], {icon: genestealers});
+genestealers_4.addTo(teritoriji_4);
 
 
 //############################################################################################################################################
 //liste
-var sviVidei = [haarChapel_3];
-var sviTeritoriji = [teritoriji_0_array, teritoriji_1_array, teritoriji_2_array, teritoriji_3_array];
+var sviVidei = [haarChapel, harleBastion];
+var sviTeritoriji = [teritoriji_0_array, teritoriji_1_array, teritoriji_2_array, teritoriji_3_array, teritoriji_4_array];
 var sveIkone = [battle, battleAlt, kommandos, kommandosAlt, dguard, dguardAlt, harlequins, harlequinsAlt, heretic_astartes, heretic_astartesAlt, kriegs, kriegsAlt, metalica, metalicaAlt, rtraders, rtradersAlt, genestealers, genestealersAlt];
 var sviMarkeri = [
     battle_1_1, harlequins_1, heretic_astartes_1, genestealers_1, 
     battle_1_2, battle_2_2, battle_3_2, battle_4_2, kommandos_2, harlequins_2, heretic_astartes_2, kriegs_2, metalica_2, genestealers_2,
-    battle_1_3, battle_2_3, kommandos_3, harlequins_3, heretic_astartes_3, kriegs_3, metalica_3, genestealers_3];
+    battle_1_3, battle_2_3, kommandos_3, harlequins_3, heretic_astartes_3, kriegs_3, metalica_3, genestealers_3,
+    battle_1_4, battle_2_4, kommandos_4, harlequins_4, heretic_astartes_4, kriegs_4, metalica_4, genestealers_4];
 var sveIkoneSize = [];
 for(var i=0; i<sveIkone.length ;i++){
     sveIkoneSize.push(sveIkone[i].options.iconSize);
@@ -979,20 +1078,20 @@ var sviKommando = [
 ];
 var sviDGuard= [["testni1",[0,1,2,-1,-1],[[1],[1],[1],[],[],[]],1],["testni2",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1],["testni3",[0,1,-1,-1,-1],[[],[],[],[],[],[]],1]];
 var sviHarlequin = [
-    ["B'aiq the Liar",[0,1,-1,-1,-1],[[],[],[],[],[],[]],1,"lead player"],
+    ["B'aiq the Liar",[0,1,-1,-1,-1],[[],[],[],[],[],[]],4,"lead player"],
     ["Mog Flexfiend",[0,1,2,-1,-1],[[],[],[],[],[],[]],4,"shadowseer"],
     ["Kitten Whiskers",[0,2,3,-1,-1],[[],[],[],[],[],[]],3,"death jester"],
     ["Mischiev&eacute",[0,1,3,-1,-1],[[],[],[],[],[],[]],3,"neuro disruptor"],
     ["Prince Calisthenic",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"fusion pistol"],
     ["Beaky Cilliana",[0,1,2,-1,-1],[[],[],[],[],[],[]],1,"kiss"],
-    ["Biara Fly",[0,1,-1,-1,-1],[[],[],[],[],[],[3]],1,"kiss"],
+    ["Biara Fly",[0,1,4,-1,-1],[[],[],[],[],[],[3]],1,"kiss"],
     ["The Fooler",[0,1,3,-1,-1],[[],[],[],[],[],[]],1,"caress"]
 ];
 var sviHAstartes = [
-    ["Zarrah, the Flayer",[0,1,2,-1,-1],[[],[],[],[],[],[]],1,"chosen"],
+    ["Zarrah, the Flayer",[0,1,2,4,-1],[[],[],[],[],[],[]],1,"chosen"],
     ["Tarran, the Silence",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"aspiring champion"],
     ["Karrva, the Maw",[0,1,3,-1,-1],[[],[],[],[],[],[]],1,"anointed"],
-    ["Orran, the Siren",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"butcher"],
+    ["Orran, the Siren",[0,4,-1,-1,-1],[[],[],[],[],[],[]],1,"butcher"],
     ["Tirros, the Blaze",[0,1,-1,-1,-1],[[],[],[],[2,3],[],[]],3,"acolyte"],
     ["Sarref, the Blade",[0,1,2,-1,-1],[[],[],[],[],[],[3]],3,"plasma gun"],
     ["Toqrrion, the Devourer",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],4,"meltagun"],
@@ -1004,16 +1103,16 @@ var sviHAstartes = [
 var sviKrieg = [
     ["Whiskeyjack",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"sergeant"],
     ["Kalam",[0,2,-1,-1,-1],[[],[],[],[],[],[]],1,"confidant"],
-    ["Mallet",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"medic"],
+    ["Mallet",[0,4,-1,-1,-1],[[],[],[],[],[],[]],2,"medic"],
     ["Quick Ben",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"comms"],
-    ["Fiddler",[0,2,-1,-1,-1],[[],[],[],[],[],[]],4,"demolition"],
-    ["Sorry",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"sniper"],
+    ["Fiddler",[0,2,4,-1,-1],[[],[],[],[],[],[]],4,"demolition"],
+    ["Sorry",[0,2,4,-1,-1],[[],[],[],[],[],[]],3,"sniper"],
     ["Hedge",[0,2,-1,-1,-1],[[],[],[],[],[],[]],4,"spotter"],
     ["Trotts",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"meltagun"],
     ["Aimless",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"plasma gun"],
     ["Shank",[0,2,-1,-1,-1],[[],[],[],[],[],[]],3,"grenade launcher"],
-    ["Ferret",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"lasgun"],
-    ["Dasalle",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"lasgun"],
+    ["Ferret",[0,4,-1,-1,-1],[[],[],[],[],[],[]],3,"lasgun"],
+    ["Dasalle",[0,4,-1,-1,-1],[[],[],[],[],[],[]],3,"lasgun"],
     ["Runter",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"lasgun"],
     ["Story",[0,-1,-1,-1,-1],[[],[],[],[],[],[]],1,"lasgun"]
 ];
@@ -1061,15 +1160,13 @@ var teamFluff =[
 ];
 //############################################################################################################################################
 var nis_lol = L.layerGroup([]).addTo(map);
-var baseMaps = {
-    "Detaljna mapa": detaljna_mapa,
-};
 var overlayMaps = {
     "<span style='color: red'>Without overlay</span>": nis_lol,
     "<span style='color: red'>Starting state</span>": teritoriji_0,
     "<span style='color: red'>Session 1</span>": teritoriji_1,
     "<span style='color: red'>Session 2</span>": teritoriji_2,
-    "<span style='color: red'>Session 3</span>": teritoriji_3
+    "<span style='color: red'>Session 3</span>": teritoriji_3,
+    "<span style='color: red'>Session 4</span>": teritoriji_4
 };
 var layerControl = L.control.layers(overlayMaps,null, {collapsed:false}).addTo(map);
 var legend = L.control({position: 'topright'});
@@ -1208,7 +1305,7 @@ function mapClick(e) {
     info.update(Relay_fluff);
 }
 var CILayera = 0;
-var indeksiLayera = [nis_lol._leaflet_id, teritoriji_0._leaflet_id, teritoriji_1._leaflet_id, teritoriji_2._leaflet_id, teritoriji_3._leaflet_id]; //ostavi ga tu
+var indeksiLayera = [nis_lol._leaflet_id, teritoriji_0._leaflet_id, teritoriji_1._leaflet_id, teritoriji_2._leaflet_id, teritoriji_3._leaflet_id, teritoriji_4._leaflet_id]; //ostavi ga tu
 function controlChange(e) {
     for(var i=0; i<sviVidei.length ;i++){
         if(map.hasLayer(sviVidei[i])){
@@ -1262,7 +1359,7 @@ map.on('zoomend', resizeIkone);
 //mobitel slike povecat
 
 //stavit da je relay lore sam kad kliknes il nes
-//vedran treba popravit video da fino loopa
+//vedran treba popravit videe da fino loopaju
   </script>
 </body>
 </html>
